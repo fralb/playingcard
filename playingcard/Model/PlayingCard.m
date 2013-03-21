@@ -10,6 +10,7 @@
 
 @implementation PlayingCard
 
+// Determine is cards match
 - (int)match:(NSArray *)otherCards
 {
     NSUInteger rankCounter = 0;

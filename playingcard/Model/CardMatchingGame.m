@@ -28,11 +28,15 @@
 #define MATCH_BONUS 4;
 #define MISMATCH_PENALTY 2;
 #define FLIP_COST 1;
+
+// Handle which card to flip according to the delt cards.
 - (void) flipCardAtIndex:(NSUInteger)index
 {
     self.gameState = YES;
     NSMutableArray *otherCards = [[NSMutableArray alloc] init];
     Card *card = [self cardAtIndex:index];
+    
+    // Checks if pushed cards is accessible to play.
     if (card && !card.isUnplayable){
         
         if(!card.isFaceUp)
@@ -42,65 +46,53 @@
                     [otherCards addObject:otherCard];
                 }
             }
+            
+            // Handles the choose of game. 2-card or 3-card.
             if([otherCards count] == self.gameMode)
             {
+                // Matches the cards and sets points and labels
                 int matchScore = [card match:otherCards];
                 if (matchScore){
                     NSString *statusStr = @"";
                     for (Card *otherCard in otherCards){
                         otherCard.Unplayable = YES;
-                        
                         statusStr = [NSString stringWithFormat:@" %@ & %@ ", statusStr, otherCard.contents];
                 }
                     
                 card.Unplayable = YES;
                 self.status = [NSString stringWithFormat:@"Matched %@ %@ for 4 points", card.contents, statusStr];
-                    
                 self.score += matchScore * MATCH_BONUS;
             } else
                 {
                     NSString *statusStr = @"";
                     for (Card *otherCard in otherCards){
-                        
                         otherCard.faceUp = NO;
                         statusStr = [NSString stringWithFormat:@"%@ & %@ ", statusStr, otherCard.contents];
                     }
                     self.status = [NSString stringWithFormat:@"%@ %@ don't match! 2 point penalty", card.contents, statusStr];
-                self.score -= MISMATCH_PENALTY;
-                    
+                    self.score -= MISMATCH_PENALTY;
                 }
-                
-                
             }
             self.score -= FLIP_COST;
-            
-            
         }
-    
         card.faceUp = !card.isFaceUp;
-        
-        
     }
 }
-
-
 
 - (Card *)cardAtIndex:(NSUInteger)index
 {
     return (index < [self.cards count]) ? self.cards[index] : nil;
 }
 
-
-
+// reset the game score, state and redeal the cards.
 - (void) resetGame
 {
     self.score = 0;
     [self dealCards];
     self.gameState = NO;
-    
-    
 }
 
+// Deal the cards random according to the arrays with suit and ranks in 'PlayingCard.m'.
 - (void) dealCards
 {
     for (int i = 0; i < self.count; i++){
@@ -108,11 +100,9 @@
         if(card){
             self.cards[i] = card;
         }else{
-            
             break;
         }
     }
-    
 }
 
 - (id)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck
