@@ -56,7 +56,7 @@
         [cardButton setTitle:card.contents forState:UIControlStateSelected];
         [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
         [cardButton setBackgroundImage: [UIImage imageNamed:@"cardbackside.jpg"] forState:UIControlStateNormal];
-        [cardButton setBackgroundImage: [UIImage imageNamed:@""] forState:UIControlStateDisabled];
+        [cardButton setBackgroundImage: [UIImage imageNamed:@"cardfrontside.png"] forState:UIControlStateSelected];
         cardButton.selected = card.isFaceUp;
         cardButton.enabled = !card.isUnplayable;
         cardButton.alpha = (card.isUnplayable ? 0.3 : 1.0);
