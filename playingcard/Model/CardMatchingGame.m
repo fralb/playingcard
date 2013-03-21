@@ -49,6 +49,7 @@
                     NSString *statusStr = @"";
                     for (Card *otherCard in otherCards){
                         otherCard.Unplayable = YES;
+                        
                         statusStr = [NSString stringWithFormat:@" %@ & %@ ", statusStr, otherCard.contents];
                 }
                 card.Unplayable = YES;
@@ -56,22 +57,24 @@
                     
                 self.score += matchScore * MATCH_BONUS;
             } else
-            {
-                NSString *statusStr = @"";
-                for (Card *otherCard in otherCards){
-                    otherCard.faceUp = NO;
-                    statusStr = [NSString stringWithFormat:@" %@ & %@ ", statusStr, otherCard.contents];
-                }
-                self.status = [NSString stringWithFormat:@"%@ %@ don't match! 2 point penalty", card.contents, statusStr];
-                
-                    self.score -= MISMATCH_PENALTY;
+                {
+                    NSString *statusStr = @"";
+                    for (Card *otherCard in otherCards){
+                        otherCard.faceUp = NO;
+                        statusStr = [NSString stringWithFormat:@" %@ & %@ ", statusStr, otherCard.contents];
+                    }
+                    self.status = [NSString stringWithFormat:@"%@ %@ don't match! 2 point penalty", card.contents, statusStr];
+                self.score -= MISMATCH_PENALTY;
                 }
                 
             }
             self.score -= FLIP_COST;
-    
+            card.faceUp = !card.isFaceUp;
+            
         }
-        card.faceUp = !card.isFaceUp;
+        
+        
+        
     }
 }
 

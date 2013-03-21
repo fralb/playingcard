@@ -24,6 +24,7 @@
 		86D940F116F1223F00A039CC /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D940F016F1223E00A039CC /* PlayingCardDeck.m */; };
 		86D940F516F888E500A039CC /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D940F416F888E500A039CC /* CardMatchingGame.m */; };
 		86FEC6CC16F9D78C0094E161 /* cardbackside.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 86FEC6CB16F9D78C0094E161 /* cardbackside.jpg */; };
+		86FEC6CE16FA70F80094E161 /* cardfrontside.gif in Resources */ = {isa = PBXBuildFile; fileRef = 86FEC6CD16FA70F80094E161 /* cardfrontside.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		86D940F316F888E500A039CC /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGame.h; path = Model/CardMatchingGame.h; sourceTree = "<group>"; };
 		86D940F416F888E500A039CC /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGame.m; path = Model/CardMatchingGame.m; sourceTree = "<group>"; };
 		86FEC6CB16F9D78C0094E161 /* cardbackside.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cardbackside.jpg; path = ../../../cardbackside.jpg; sourceTree = "<group>"; };
+		86FEC6CD16FA70F80094E161 /* cardfrontside.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = cardfrontside.gif; path = ../../../../Downloads/cardfrontside.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				86D940F416F888E500A039CC /* CardMatchingGame.m */,
 				864C889416EEA55200E574D5 /* Card.h */,
 				864C889516EEA55200E574D5 /* Card.m */,
+				86FEC6CD16FA70F80094E161 /* cardfrontside.gif */,
 				86FEC6CB16F9D78C0094E161 /* cardbackside.jpg */,
 				864C889716EEA58B00E574D5 /* Deck.h */,
 				864C889816EEA58B00E574D5 /* Deck.m */,
@@ -201,6 +204,7 @@
 				864C888816EE9B8A00E574D5 /* Default-568h@2x.png in Resources */,
 				864C888B16EE9B8A00E574D5 /* MainStoryboard.storyboard in Resources */,
 				86FEC6CC16F9D78C0094E161 /* cardbackside.jpg in Resources */,
+				86FEC6CE16FA70F80094E161 /* cardfrontside.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
